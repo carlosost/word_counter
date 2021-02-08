@@ -22,7 +22,9 @@ def upload_file():
         file_ext = path.splitext(filename)[1]
         if file_ext not in app.config['UPLOAD_EXTENSIONS']:
             return 'File type not supported. Must be txt.'
-        return 'File uploaded, but not yet evaluated.'
+        
+        content = uploaded_file.read()
+        return f'Total words: {len(content.split())}'
     return redirect(url_for('index'))
 
 if __name__ == "__main__":
