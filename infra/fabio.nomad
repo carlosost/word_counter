@@ -2,20 +2,11 @@ job "fabio" {
     
     datacenters = ["dc1"]
     
-    group "fabio" {
+    group "g-fabio" {
     
         count = 1
 
-        network {
-            port "lb" {
-                static = 5000
-            }
-            port "ui" {
-                static = 9998
-            }
-        }
-
-        task "fabio" {
+        task "t-fabio" {
 
             driver = "raw_exec"
 

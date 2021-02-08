@@ -1,10 +1,15 @@
 job "j-word-counter" {
 
     datacenters = ["dc1"]
+    type = "service"
 
     group "g-word-counter" {
 
-        count = 5
+        scaling {
+            enabled = true
+            min = 3
+            max = 5
+        }
 
         task "t-word-counter" {
 
@@ -14,9 +19,12 @@ job "j-word-counter" {
                 image = "ghcr.io/carlosost/word_counter/word_counter:latest"
             }
 
+            env {
+                PORT = "${NOMAD_PORT_http}"
+            }
+
             resources {
                 network {
-                    mbits = 10
                     port "http" {}
                 }
             }
@@ -27,12 +35,12 @@ job "j-word-counter" {
                 
                 tags = [
                     "macbook",
-                    "urlprefix-/word-counter",
+                    "urlprefix-/",
                 ]
 
                 check {
                     type     = "http"
-                    path     = "/health"
+                    path     = "/"
                     interval = "2s"
                     timeout  = "2s"
                 }
