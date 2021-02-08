@@ -5,4 +5,4 @@ RUN pip3 install flask
 RUN git clone https://github.com/carlosost/word_counter.git
 RUN chmod -R 777 word_counter/
 ENV PYTHONPATH=word_counter:$PYTHONPATH
-CMD ./word_counter/api/app.py
+CMD ./word_counter/app.py
