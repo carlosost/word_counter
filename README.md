@@ -25,12 +25,12 @@ but not something you should do in production.
 8. Access `http://localhost:9999` to access the word counter serice UI
 
 ## How to monitor 
-Access `http://localhost:4646` to monitor the jobs being orchestrated
-Access `http://localhost:8500` to monitor the services being discovered
-Access `http://127.0.0.1:9998` to monitor the services being balanced
+- Access `http://localhost:4646` to monitor the jobs being orchestrated
+- Access `http://localhost:8500` to monitor the services being discovered
+- Access `http://127.0.0.1:9998` to monitor the services being balanced
 
 ## How to scaling up
-1. Click on `j-word-counter` job and hit `Stop`
+1. Click on `j-word-counter` job at Nomad Dashboar and hit `Stop`
 2. Access the file `infra/word_counter.nomad` and change `scaling min max` as needed
 3. At Jobs section, click "Run Job" and paste the content of the file `infra/word_counter.nomad`
 
