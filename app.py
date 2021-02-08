@@ -21,7 +21,7 @@ def upload_file():
     if filename != '':
         file_ext = path.splitext(filename)[1]
         if file_ext not in app.config['UPLOAD_EXTENSIONS']:
-            abort(400)
+            return 'File type not supported. Must be txt.'
         return 'File uploaded, but not yet evaluated.'
     return redirect(url_for('index'))
 
